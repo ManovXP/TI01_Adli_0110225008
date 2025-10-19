@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Form Pemesanan Parfum</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <div class="page">
+    <header class="topnav"><nav>Home | Generate Link | Transaction History | Policy | Logout</nav></header>
+
+    <main class="form-wrap">
+      <form id="order-form" action="output.php" method="post" enctype="multipart/form-data">
+        <div class="left">
+          <div class="product-photo">
+            <img src="../Praktikum 2/Produk/assets/images/1.png" alt="Parfum Bloom">
+          </div>
+        </div>
+
+        <div class="right">
+          <div class="row"><label>Varian :</label>
+            <select name="variant">
+              <option>Vanilla</option>
+              <option>Flower Bloom</option>
+              <option>Violet Mist</option>
+            </select>
+          </div>
+
+            <div class="row"><label>Ukuran :</label>
+              <select name="size" id="size">
+                <option value="20">20 ML</option>
+                <option value="50">50 ML</option>
+                <option value="100">100 ML</option>
+              </select>
+            </div>
+
+            <div class="row"><label>Jumlah :</label>
+              <input type="number" name="quantity" id="quantity" min="1" value="1">
+            </div>
+
+            <div class="row"><label>Total :</label>
+              <div id="totalDisplay">Rp 0</div>
+            </div>
+            <input type="hidden" name="amount" id="amount" value="0">
+
+          <div class="row"><label>Pembayaran :</label>
+            <select name="payment">
+              <option>Visa Debit</option>
+              <option>Visa Credit</option>
+              <option>Bank Transfer</option>
+              <option>Cash on Delivery</option>
+            </select>
+          </div>
+
+          <div class="row"><label>Alamat :</label>
+            <textarea name="address" rows="3" placeholder="Masukkan alamat pengiriman"></textarea>
+          </div>
+
+          <div class="row center">
+            <button type="submit" form="order-form" class="primary">Pesan</button>
+            <button type="reset" form="order-form" class="btn">Reset</button>
+          </div>
+        </div>
+      </form>
+    </main>
+
+    <footer class="footer">&copy; Adli Abdurrahman Syah</footer>
+  </div>
+  <script>
+    const priceMap = { '20': 50000, '50': 120000, '100': 200000 };
+    const sizeEl = document.getElementById('size');
+    const qtyEl = document.getElementById('quantity');
+    const totalDisplay = document.getElementById('totalDisplay');
+    const amountInput = document.getElementById('amount');
+
+    function updateTotal(){
+      const size = sizeEl.value;
+      const qty = parseInt(qtyEl.value) || 0;
+      const unit = priceMap[size] || 0;
+      const total = unit * qty;
+      totalDisplay.textContent = 'Rp ' + total.toLocaleString('id-ID');
+      amountInput.value = total;
+    }
+
+    sizeEl.addEventListener('change', updateTotal);
+    qtyEl.addEventListener('input', updateTotal);
+    updateTotal();
+  </script>
+</body>
+</html>

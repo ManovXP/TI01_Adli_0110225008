@@ -1,0 +1,12 @@
+.result{display:flex;gap:20px;padding:16px}
+.result .photo{width:320px;border:1px solid #ccc;padding:8px;background:#fff}
+.result .photo img{max-width:100%;height:auto;display:block}
+.result .info{flex:1}
+.result .info .row{margin:6px 0}
+.pay{margin-top:18px;text-align:center}
+.pay .primary{background:green}
+
+@media (max-width:800px){
+  .result{flex-direction:column}
+  .result .photo{width:100%}
+}
