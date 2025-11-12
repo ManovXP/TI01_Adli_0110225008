@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Kelola Montir/Mekanik</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <main class="page">
+        <form class="mechanic-form" action="#" method="post" enctype="multipart/form-data">
+            <fieldset>
+                <div class="form-grid">
+                    <div class="left">
+                        <div class="title">
+                            <h1>Kelola Montir/Mekanik</h1>
+                        </div>
+
+                        <div class="row">
+                            <label for="name">Nama Mekanik</label>
+                            <input id="name" name="name" type="text" required>
+                        </div>
+
+                        <div class="row two-col">
+                            <label for="kategori">Kategori</label>
+                            <select id="kategori" name="kategori">
+                                <option>Senior Mekanik</option>
+                                <option>Junior Mekanik</option>
+                                <option>Magang</option>
+                            </select>
+                        </div>
+
+                        <div class="row">
+                            <label for="skill">Deskripsi Skill</label>
+                            <textarea id="skill" name="skill" rows="5"></textarea>
+                        </div>
+
+                        <div class="row">
+                            <label>Kemampuan</label>
+                            <div class="checkboxes">
+                                <label><input type="checkbox" name="kemampuan[]" value="service-ringan"> Service
+                                    Ringan</label>
+                                <label><input type="checkbox" name="kemampuan[]" value="service-besar"> Service
+                                    Besar</label>
+                                <label><input type="checkbox" name="kemampuan[]" value="body-repair"> Body
+                                    Repair</label>
+                            </div>
+                        </div>
+
+                        <div class="row2 tempat-lahir">
+                            <label for="tempat">Tempat Lahir, Tanggal Lahir</label>
+                            <input id="tempat" name="tempat" type="text">
+                            <input id="tanggal" name="tanggal" type="date">
+                        </div>
+
+                        <div class="row">
+                            <label for="telpon">Telpon</label>
+                            <input id="telpon" name="telpon" type="tel">
+                        </div>
+
+                        <div class="row buttons">
+                            <button type="submit" class="btn primary">Simpan</button>
+                            <button type="reset" class="btn">Reset</button>
+                        </div>
+                    </div>
+
+                    <aside class="photo-box">
+                        <div class="photo-frame">
+                            <img src="https://static.vecteezy.com/system/resources/thumbnails/005/544/718/small/profile-icon-design-free-vector.jpg"
+                                alt="foto profil">
+                        </div>
+                        <div class="upload">
+                            <label class="upload-link">Upload Foto
+                                <input id="photo-input" type="file" name="foto" accept="image/*">
+                            </label>
+                        </div>
+                    </aside>
+                </div>
+            </fieldset>
+        </form>
+    </main>
+
+    <script>
+        const fileInput = document.getElementById('photo-input');
+        const previewContainer = document.querySelector('.photo-frame');
+        const initialHTML = previewContainer.innerHTML;
+
+        if (fileInput) {
+            fileInput.addEventListener('change', function () {
+                const file = this.files && this.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        // replace preview content with the selected image
+                        previewContainer.innerHTML = '';
+                        const img = document.createElement('img');
+                        img.src = e.target.result;
+                        img.alt = 'Preview foto';
+                        img.style.width = '100%';
+                        img.style.height = '100%';
+                        img.style.objectFit = 'cover';
+                        previewContainer.appendChild(img);
+                    }
+                    reader.readAsDataURL(file);
+                } else {
+                    previewContainer.innerHTML = initialHTML;
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
