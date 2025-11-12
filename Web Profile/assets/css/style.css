@@ -1,0 +1,160 @@
+/* Simple responsive profile layout */
+:root {
+  --max-width: 1000px;
+  --accent: #2b6cb0;
+  --muted: #666;
+}
+
+* {
+  box-sizing: border-box
+}
+
+body {
+  font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+  color: #222;
+  margin: 0;
+  padding: 0;
+  background: #f8f8f8
+}
+
+.site-header {
+  background: #fff;
+  padding: 16px 20px;
+  border-bottom: 2px solid #e6e6e6
+}
+
+.site-header h1 {
+  margin: 0;
+  font-size: 1.4rem
+}
+
+.main-nav {
+  margin-top: 8px
+}
+
+.main-nav a {
+  margin-right: 12px;
+  color: var(--accent);
+  text-decoration: none
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 24px auto;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid #e6e6e6
+}
+
+.profile {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start
+}
+
+.photo img {
+  width: 200px;
+  aspect-ratio: 3/4;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  max-width: 100%;
+  border: 6px solid #eee;
+}
+
+.biodata h2 {
+  margin: 0 0 8px 0
+}
+
+.biodata ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: var(--muted)
+}
+
+.biodata li {
+  margin-bottom: 6px
+}
+
+.about {
+  margin-top: 20px
+}
+
+.about h3 {
+  margin-bottom: 8px
+}
+
+.multimedia {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 18px
+}
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%
+}
+
+.gallery .thumbs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px
+}
+
+.gallery img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border: 1px solid #ddd
+}
+
+.attachments {
+  margin-top: 18px
+}
+
+.attachments ul {
+  list-style: disc;
+  padding-left: 20px
+}
+
+.attachments a {
+  color: var(--accent);
+  text-decoration: none
+}
+
+.site-footer {
+  text-align: center;
+  padding: 14px;
+  color: #888;
+  margin-top: 18px
+}
+
+@media(max-width:700px) {
+  .profile {
+    flex-direction: column;
+    align-items: center
+  }
+
+  .multimedia {
+    grid-template-columns: 1fr
+  }
+
+  .photo img {
+    width: 160px;
+    aspect-ratio: 3/4;
+    height: auto
+  }
+}
