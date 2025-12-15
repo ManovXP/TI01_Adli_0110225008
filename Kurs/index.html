@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kurs Rupiah</title>
+</head>
+<body>
+    <fieldset>
+        <table>
+            <thead>
+                <th>Masukan Nilai</th>
+                <th>Valas</th>
+                <th>Nilai Rupiah</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <input type="number" id="nilai" step="any" placeholder="Masukkan nilai" />
+                    </td>
+                    <td>
+                        <select name="valas" id="valas">
+                            <option value="usd" selected>US Dollar (USD)</option>
+                            <option value="sgd">Dollar Singapore (SGD)</option>
+                            <option value="rm">Ringgit Malaysia (RM)</option>
+                            <option value="jpy">Yen Jepang (JPY)</option>
+                            <option value="eur">Euro (EUR)</option>
+                            <option value="sar">Riyal Arab Saudi (SAR)</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="text" id="rupiah" readonly>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </fieldset>
+    <script src="script.js"></script>
+</body>
+</html>

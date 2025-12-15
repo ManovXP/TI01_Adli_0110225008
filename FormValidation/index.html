@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Form Validation</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <main class="container">
+        <h1>Form Pemesanan Tiket</h1>
+        <form id="bookingForm" novalidate>
+            <div class="field">
+                <label for="name">Nama Pelanggan</label>
+                <input id="name" name="name" type="text" maxlength="30" aria-describedby="nameError" required>
+                <span class="error" id="nameError" aria-live="polite"></span>
+            </div>
+
+            <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" aria-describedby="emailError" required>
+                <span class="error" id="emailError" aria-live="polite"></span>
+            </div>
+
+            <div class="field">
+                <label for="time">Jam Keberangkatan (HH.MM)</label>
+                <input id="time" name="time" type="text" placeholder="08.30" aria-describedby="timeError" required>
+                <span class="error" id="timeError" aria-live="polite"></span>
+            </div>
+
+            <div class="field">
+                <label for="destination">Tujuan Keberangkatan</label>
+                <input id="destination" name="destination" type="text" aria-describedby="destinationError" required>
+                <span class="error" id="destinationError" aria-live="polite"></span>
+            </div>
+
+            <div class="field">
+                <label for="tickets">Jumlah Tiket (1-10)</label>
+                <input id="tickets" name="tickets" type="number" min="1" max="10" step="1"
+                    aria-describedby="ticketsError" required>
+                <span class="error" id="ticketsError" aria-live="polite"></span>
+            </div>
+
+            <div class="actions">
+                <button type="submit">Submit</button>
+                <button type="reset" id="resetBtn">Reset</button>
+            </div>
+        </form>
+
+        <section id="result" class="result" aria-live="polite"></section>
+    </main>
+
+    <script src="assets/js/validate.js"></script>
+</body>
+
+</html>
