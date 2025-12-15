@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menghitung Keliling dan Luas Lingkaran</title>
+</head>
+<body>
+    <h2>Menghitung Keliling dan Luas Lingkaran</h2>
+
+    <label for="r">Jari-jari (cm): </label>
+    <input id="r" type="number" value="7" step="any" min="0">
+    <br>
+
+    <label for="phiSelect">Gunakan nilai phi: </label>
+    <select id="phiSelect">
+        <option value="3.14">3.14</option>
+        <option value="PI">Math.PI (~3.14159)</option>
+    </select>
+    <br>
+
+    <p><strong>Hasil:</strong></p>
+    <div id="phi"></div>
+    <div id="jari"></div>
+    <div id="luas"></div>
+    <div id="keliling"></div>
+
+    <script>
+        const phiSelect = document.getElementById('phiSelect');
+        const rInput = document.getElementById('r');
+
+        function hitung() {
+            const r = parseFloat(rInput.value) || 0;
+            const phi = phiSelect.value === 'PI' ? Math.PI : parseFloat(phiSelect.value);
+
+            const luas = phi * r * r;
+            const keliling = 2 * phi * r;
+
+            document.getElementById("phi").textContent = "Nilai Phi = " + (phi === Math.PI ? 'Math.PI (' + phi.toFixed(6) + ')' : phi);
+            document.getElementById("jari").textContent = "Jari-jari Lingkaran = " + r + " cm";
+            document.getElementById("luas").textContent = "Luas Lingkaran = " + luas.toFixed(2) + " cm²";
+            document.getElementById("keliling").textContent = "Keliling Lingkaran = " + keliling.toFixed(2) + " cm";
+        }
+
+        rInput.addEventListener('input', hitung);
+        phiSelect.addEventListener('change', hitung);
+
+        hitung();
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biaya Parkir</title>
+</head>
+
+<body>
+    <h1>Perhitungan Biaya Parkir</h1>
+    <label for="jam-masuk">Jam Masuk (24 jam):</label>
+    <input type="number" id="jam-masuk" min="0" max="23">
+    <br>
+    <label for="jam-keluar">Jam Keluar (24 jam):</label>
+    <input type="number" id="jam-keluar" min="0" max="23">
+    <br>
+    <label for="lama-parkir">Lama Parkir:</label>
+    <input type="number" id="lama-parkir" min="0" max="24" readonly>
+    <br>
+    <label for="hasil-biaya">Hasil Biaya Parkir:</label>
+    <input type="number" id="hasil-biaya" readonly>
+    <br>
+    <button type="button" onclick="hitung_biaya()">Hitung Biaya Parkir</button>
+</body>
+
+<script>
+    function hitung_biaya() {
+        var jam_masuk = parseFloat(document.getElementById("jam-masuk").value);
+        var jam_keluar = parseFloat(document.getElementById("jam-keluar").value);
+        var total_biaya = 0;
+        var jam_pertama = 3000;
+        if (isNaN(jam_masuk) || isNaN(jam_keluar) || jam_masuk < 0 || jam_masuk > 23 || jam_keluar < 0 || jam_keluar > 23) {
+            alert("Masukkan jam masuk dan jam keluar yang valid (0-23).");
+            return;
+        }
+
+        var lama_parkir = 0;
+        if (jam_keluar >= jam_masuk) {
+            lama_parkir = jam_keluar - jam_masuk;
+        } else {
+            lama_parkir = (24 - jam_masuk) + jam_keluar;
+        }
+
+        document.getElementById("lama-parkir").value = lama_parkir;
+
+        if (lama_parkir <= 1) {
+            total_biaya = jam_pertama;
+        } else {
+            total_biaya = jam_pertama + (lama_parkir - 1) * 1000;
+        }
+
+        document.getElementById("hasil-biaya").value = total_biaya;
+        }
+</script>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Menghitung Hasil</h1>
+    <label for="angka">Angka 1</label>
+    <input type="number" id="angka" />
+    <br>
+    <label for="angka2">Angka 2</label>
+    <input type="number" id="angka2" />
+    <br>
+    <label for="hasil">Hasil</label>
+    <input type="number" id="hasil" readonly />
+    <br>
+</body>
+<script>
+    function hitung() {
+        var angka1 = parseFloat(document.getElementById("angka").value) || 0;
+        var angka2 = parseFloat(document.getElementById("angka2").value) || 0;
+        var hasil = angka1 + angka2;
+        document.getElementById("hasil").value = hasil;
+    }
+
+    document.getElementById('angka').addEventListener('input', hitung);
+    document.getElementById('angka2').addEventListener('input', hitung);
+</script>
+</html>
