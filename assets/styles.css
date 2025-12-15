@@ -1,0 +1,196 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f2e9d0;
+    color: #111;
+    line-height: 1.5;
+}
+
+#header,
+.isi,
+.koleksi,
+.promo {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 12px 18px;
+}
+
+#header {
+    background: #f6d99a;
+    border: 4px solid #e6d5b0;
+    margin-top: 18px;
+    text-align: center;
+    box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.02) inset;
+}
+
+#header h1 {
+    margin: 8px 0;
+    color: #063fa6;
+    /* strong blue title */
+    font-size: 26px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+#header blockquote {
+    background: #ffd94d;
+    display: inline-block;
+    padding: 8px 12px;
+    margin: 8px 0 12px;
+    font-size: 13px;
+    color: #111;
+    text-align: left;
+    border-radius: 2px;
+}
+
+#header #soekarno {
+    display: block;
+    margin-top: 6px;
+    font-weight: 700
+}
+
+div>ul {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0;
+    text-align: center
+}
+
+div>ul li {
+    display: inline;
+    margin: 0 8px
+}
+
+div>ul a {
+    color: #4a4a4a;
+    text-decoration: underline;
+    font-size: 14px
+}
+
+.gambar {
+    max-width: 900px;
+    margin: 6px auto 20px;
+    text-align: center
+}
+
+.gambar img {
+    width: 200px;
+    height: 140px;
+    object-fit: cover;
+    margin: 0 6px;
+    border: 4px solid #eae6d0
+}
+
+.isi {
+    background: transparent
+}
+
+.isi p {
+    max-width: 880px;
+    margin: 14px auto;
+    font-size: 15px;
+    text-align: justify
+}
+
+.isi .jawa {
+    font-weight: 700
+}
+
+.isi p:first-of-type::first-letter {
+    float: left;
+    font-size: 48px;
+    color: #113bb0;
+    font-weight: 800;
+    margin-right: 8px;
+    line-height: 0.8;
+    font-family: Georgia, 'Times New Roman', serif
+}
+
+#profil h3 {
+    margin-top: 18px;
+    margin-left: 230px;
+}
+
+#profil li {
+    margin-left: 230px
+}
+
+#profil ul {
+    margin-left: 22px
+}
+
+#beternak h3 {
+    margin-top: 18px;
+    margin-left: 225px;
+}
+
+#beternak ol {
+    max-width: 900px;
+    margin: 12px auto;
+    padding-left: 18px
+}
+
+#beternak li {
+    margin: 12px 0
+}
+
+.koleksi {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    padding: 12px
+}
+
+.koleksi img {
+    width: 180px;
+    height: 120px;
+    object-fit: cover;
+    border: 3px solid #fff;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.12)
+}
+
+.promo {
+    background: #fff7d9;
+    border-top: 4px solid #f0d87a;
+    margin-top: 18px;
+    padding: 18px
+}
+
+.promo h2 {
+    color: #222;
+    margin: 0 0 6px;
+    text-align: center
+}
+
+.promo h3 {
+    text-align: center;
+    margin: 6px 0
+}
+
+.promo h3 strong {
+    color: #c72
+}
+
+.promo a {
+    color: #0b66c7
+}
+
+@media (max-width:640px) {
+    #header h1 {
+        font-size: 20px
+    }
+
+    .gambar img {
+        width: 140px;
+        height: 100px
+    }
+
+    .koleksi img {
+        width: 140px;
+        height: 100px
+    }
+
+    .isi p:first-of-type::first-letter {
+        font-size: 40px
+    }
+}
